@@ -30,6 +30,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       validator:
           (value) => value!.isEmpty ? 'Enter your ${widget.hintText}' : null,
       decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(color: AppColors.secondary),
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide(color: AppColors.secondary),
