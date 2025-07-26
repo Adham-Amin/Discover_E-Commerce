@@ -21,13 +21,11 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: views[selectedIndex],
-        bottomNavigationBar: CustomBottomNavigationBar(
-          selectedIndex: selectedIndex,
-          onTap: (index) => setState(() => selectedIndex = index),
-        ),
+    return Scaffold(
+      body: views[selectedIndex],
+      bottomNavigationBar: CustomBottomNavigationBar(
+        selectedIndex: selectedIndex,
+        onTap: (index) => setState(() => selectedIndex = index),
       ),
     );
   }

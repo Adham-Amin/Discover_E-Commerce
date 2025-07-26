@@ -1,0 +1,35 @@
+import 'package:discover/core/utils/app_colors.dart';
+import 'package:discover/core/utils/app_styles.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key, required this.title, this.onPressed});
+
+  final String title;
+  final void Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 50,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+        ),
+        child: Text(
+          title,
+          style: AppStyles.textMedium16.copyWith(
+            color: AppColors.white,
+            fontSize: 20.sp,
+          ),
+        ),
+      ),
+    );
+  }
+}
