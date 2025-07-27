@@ -1,3 +1,4 @@
+import 'package:discover/features/home/presentation/views/home_view.dart';
 import 'package:discover/features/main/presentation/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class _MainViewState extends State<MainView> {
   int selectedIndex = 0;
 
   List<Widget> views = [
-    const Center(child: Text('Home')),
+    const HomeView(),
     const Center(child: Text('Cart')),
     const Center(child: Text('Account')),
   ];
