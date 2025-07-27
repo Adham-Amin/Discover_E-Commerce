@@ -3,6 +3,7 @@ import 'package:discover/core/widgets/height_sized.dart';
 import 'package:discover/features/home/presentation/widgets/categories_list.dart';
 import 'package:discover/features/home/presentation/widgets/custom_text_field.dart';
 import 'package:discover/features/home/presentation/widgets/product_item.dart';
+import 'package:discover/features/product/presentation/views/product_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -36,7 +37,12 @@ class HomeViewBody extends StatelessWidget {
               crossAxisSpacing: 16.w,
               mainAxisSpacing: 16.h,
             ),
-            itemBuilder: (context, index) => ProductItem(),
+            itemBuilder:
+                (context, index) => GestureDetector(
+                  onTap:
+                      () => Navigator.pushNamed(context, ProductView.routeName),
+                  child: ProductItem(),
+                ),
           ),
         ],
       ),
