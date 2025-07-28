@@ -1,3 +1,5 @@
+import 'package:discover/features/account/presentation/views/account_view.dart';
+import 'package:discover/features/cart/presentation/views/cart_view.dart';
 import 'package:discover/features/home/presentation/views/home_view.dart';
 import 'package:discover/features/main/presentation/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +18,8 @@ class _MainViewState extends State<MainView> {
 
   List<Widget> views = [
     const HomeView(),
-    const Center(child: Text('Cart')),
-    const Center(child: Text('Account')),
+    const CartView(),
+    const AccountView(),
   ];
 
   @override
