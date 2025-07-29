@@ -28,12 +28,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_snack_bar: ^0.4.0
   cupertino_icons: ^1.0.8
   dio: ^5.8.0+1
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   google_fonts: ^6.2.1
+  lottie: ^3.3.1
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -52,6 +54,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/lottie/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -79,6 +82,7 @@ flutter:
 flutter_assets:
   assets_path:
     - assets/images/
+    - assets/lottie/
   output_path: lib/core/utils/
   filename: app_assets.dart
   field_prefix: null

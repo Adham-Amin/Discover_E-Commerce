@@ -1,0 +1,13 @@
+import 'package:animated_snack_bar/animated_snack_bar.dart';
+import 'package:flutter/material.dart';
+
+customSnackBar({
+  required BuildContext context,
+  required String message,
+  required AnimatedSnackBarType type,
+}) async {
+  AnimatedSnackBar.material(
+    message,
+    type: type,
+  ).show(context);
+}

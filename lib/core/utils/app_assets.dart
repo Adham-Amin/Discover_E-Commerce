@@ -41,5 +41,9 @@ class AppAssets {
   /// Assets for imagesProductTest
   /// assets/images/product_test.png
   static const String imagesProductTest = "assets/images/product_test.png";
+
+  /// Assets for lottieLoadingLottie
+  /// assets/lottie/Loading_lottie.json
+  static const String lottieLoadingLottie = "assets/lottie/Loading_lottie.json";
 }
 
