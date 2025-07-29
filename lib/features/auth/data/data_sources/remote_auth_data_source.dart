@@ -17,8 +17,8 @@ class RemoteAuthDataSourceImpl implements RemoteAuthDataSource {
   }) async {
 
     final response = await apiService.post(
-      endPoint: '/login',
-      data: {'email': email, 'password': password},
+      endPoint: '/auth/login',
+      data: {'username': email, 'password': password},
     );
 
     var token = LoginModel.fromJson(response);
