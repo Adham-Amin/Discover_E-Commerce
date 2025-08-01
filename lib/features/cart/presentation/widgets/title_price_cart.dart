@@ -25,7 +25,7 @@ class TitlePriceCart extends StatelessWidget {
             color: colorTitle ?? AppColors.secondary,
           ),
         ),
-        Text('\$ $price', style: AppStyles.textMedium16),
+        Text(price, style: AppStyles.textMedium16),
       ],
     );
   }

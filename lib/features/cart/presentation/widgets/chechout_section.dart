@@ -5,7 +5,12 @@ import 'package:discover/features/cart/presentation/widgets/title_price_cart.dar
 import 'package:flutter/material.dart';
 
 class CheckoutSection extends StatelessWidget {
-  const CheckoutSection({super.key});
+  const CheckoutSection({super.key, required this.countProducts, required this.countQuantity, required this.price, required this.discountedTotal});
+
+  final String countProducts;
+  final String countQuantity;
+  final String price;
+  final String discountedTotal;
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +23,16 @@ class CheckoutSection extends StatelessWidget {
           children: [
             Divider(color: AppColors.gray),
             HeightSized(height: 16),
-            TitlePriceCart(title: 'Sub-total', price: '5,870'),
+            TitlePriceCart(title: 'Total Products', price: countProducts),
             HeightSized(height: 16),
-            TitlePriceCart(title: 'VAT (%)', price: '0,000'),
+            TitlePriceCart(title: 'Total Quantity', price: countQuantity),
             HeightSized(height: 16),
-            TitlePriceCart(title: 'Shipping fee', price: '80'),
+            TitlePriceCart(title: 'Total', price: '\$$price'),
             Divider(color: AppColors.gray, height: 32),
             TitlePriceCart(
               colorTitle: AppColors.black,
-              title: 'Total',
-              price: '5,950',
+              title: 'Discounted Total',
+              price: '\$$discountedTotal',
             ),
             HeightSized(height: 24),
             CustomButton(title: 'Go To Checkout', onPressed: () {}),
