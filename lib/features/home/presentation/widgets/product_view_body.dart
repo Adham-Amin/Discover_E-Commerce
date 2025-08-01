@@ -1,13 +1,15 @@
-import 'package:discover/core/utils/app_assets.dart';
 import 'package:discover/core/utils/app_colors.dart';
 import 'package:discover/core/utils/app_styles.dart';
 import 'package:discover/core/widgets/custom_button.dart';
 import 'package:discover/core/widgets/height_sized.dart';
+import 'package:discover/features/home/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductViewBody extends StatelessWidget {
-  const ProductViewBody({super.key});
+  const ProductViewBody({super.key, required this.product});
+
+  final ProductEntity product;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +25,15 @@ class ProductViewBody extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.r),
             ),
-            child: Image.asset(AppAssets.imagesProductTest, fit: BoxFit.cover),
+            child: Image.network(
+              product.imageUrl,
+              errorBuilder: (context, error, stackTrace) => Icon(Icons.error),
+              fit: BoxFit.fill,
+            ),
           ),
           HeightSized(height: 12),
           Text(
-            'Fit Polo T Shirt',
+            product.name.substring(0, 10),
             style: AppStyles.textSemiBold32.copyWith(fontSize: 24.sp),
           ),
           HeightSized(height: 12),
@@ -36,13 +42,13 @@ class ProductViewBody extends StatelessWidget {
             children: [
               Icon(Icons.star, color: Colors.yellow),
               Text(
-                '4.0/5',
+                '${product.rate}/5',
                 style: AppStyles.textMedium16.copyWith(
                   decoration: TextDecoration.underline,
                 ),
               ),
               Text(
-                '(45 reviews)',
+                '(${product.count} reviews)',
                 style: AppStyles.textMedium16.copyWith(
                   color: AppColors.secondary,
                 ),
@@ -51,7 +57,9 @@ class ProductViewBody extends StatelessWidget {
           ),
           HeightSized(height: 12),
           Text(
-            'Blue T Shirt . Good for All Men and Suits for All of Them.Blue T Shirt . Good for All Men and Suits for All of Them',
+            product.overview,
+            maxLines: 5,
+            overflow: TextOverflow.clip,
             style: AppStyles.textRegular16.copyWith(color: AppColors.secondary),
           ),
           Spacer(),
@@ -69,15 +77,17 @@ class ProductViewBody extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '\$ 1,100',
+                    '\$ ${product.priceProduct}',
                     style: AppStyles.textSemiBold32.copyWith(fontSize: 24.sp),
                   ),
                 ],
               ),
-              Expanded(child: CustomButton(title: 'Add to Cart', onPressed: () {})),
+              Expanded(
+                child: CustomButton(title: 'Add to Cart', onPressed: () {}),
+              ),
             ],
           ),
-          HeightSized(height: 8)
+          HeightSized(height: 8),
         ],
       ),
     );

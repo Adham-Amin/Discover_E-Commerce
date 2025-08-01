@@ -22,7 +22,9 @@ class ServerFailure extends Failure {
         return ServerFailure('badCertificate with api server');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            e.response!.statusCode!, e.response!.data);
+          e.response!.statusCode!,
+          e.response!.data,
+        );
       case DioExceptionType.cancel:
         return ServerFailure('Request to ApiServer was canceld');
       case DioExceptionType.connectionError:

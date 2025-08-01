@@ -6,8 +6,5 @@ customSnackBar({
   required String message,
   required AnimatedSnackBarType type,
 }) async {
-  AnimatedSnackBar.material(
-    message,
-    type: type,
-  ).show(context);
+  AnimatedSnackBar.material(message, type: type).show(context);
 }

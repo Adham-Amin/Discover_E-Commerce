@@ -1,13 +1,53 @@
-class LoginModel {
+import 'package:discover/features/auth/domain/entities/login_entity.dart';
 
-  final String token;
-  LoginModel({required this.token});
+class LoginModel extends LoginEntity {
+  String? accessToken;
+  String? refreshToken;
+  int? id;
+  String? username;
+  String? email;
+  String? firstName;
+  String? lastName;
+  String? gender;
+  String? image;
 
-  factory LoginModel.fromJson(Map<String, dynamic> json) {
-    return LoginModel(token: json['token']);
-  }
+  LoginModel({
+    this.accessToken,
+    this.refreshToken,
+    this.id,
+    this.username,
+    this.email,
+    this.firstName,
+    this.lastName,
+    this.gender,
+    this.image,
+  }) : super(
+         name: '$firstName $lastName',
+         idUser: id ?? 0,
+         token: accessToken ?? 'N/A',
+       );
 
-  Map<String, dynamic> toJson() {
-    return {'token': token};
-  }
+  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
+    accessToken: json['accessToken'] as String?,
+    refreshToken: json['refreshToken'] as String?,
+    id: json['id'] as int?,
+    username: json['username'] as String?,
+    email: json['email'] as String?,
+    firstName: json['firstName'] as String?,
+    lastName: json['lastName'] as String?,
+    gender: json['gender'] as String?,
+    image: json['image'] as String?,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'accessToken': accessToken,
+    'refreshToken': refreshToken,
+    'id': id,
+    'username': username,
+    'email': email,
+    'firstName': firstName,
+    'lastName': lastName,
+    'gender': gender,
+    'image': image,
+  };
 }

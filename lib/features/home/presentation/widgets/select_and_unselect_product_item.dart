@@ -8,16 +8,24 @@ class SelectedAndUnSelectedCategoryItem extends StatelessWidget {
     super.key,
     required this.isSelected,
     required this.title,
+    this.onTap,
   });
 
+  final VoidCallback? onTap;
   final bool isSelected;
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return isSelected
-        ? SelectedCategoryItem(title: title)
-        : UnSelectedCategoryItem(title: title);
+        ? GestureDetector(
+          onTap: onTap,
+          child: SelectedCategoryItem(title: title),
+        )
+        : GestureDetector(
+          onTap: onTap,
+          child: UnSelectedCategoryItem(title: title),
+        );
   }
 }
 

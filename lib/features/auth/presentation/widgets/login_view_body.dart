@@ -5,7 +5,8 @@ import 'package:discover/core/widgets/custom_button.dart';
 import 'package:discover/core/widgets/custom_loading.dart';
 import 'package:discover/core/widgets/custom_snack_bar.dart';
 import 'package:discover/core/widgets/height_sized.dart';
-import 'package:discover/features/auth/presentation/manager/cubit/auth_cubit.dart';
+import 'package:discover/features/auth/presentation/manager/auth_cubit.dart';
+import 'package:discover/features/auth/presentation/manager/auth_state.dart';
 import 'package:discover/features/auth/presentation/views/sign_up_view.dart';
 import 'package:discover/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:discover/features/auth/presentation/widgets/custom_text_rich.dart';
@@ -78,7 +79,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   Navigator.pushReplacementNamed(context, MainView.routeName);
                   customSnackBar(
                     context: context,
-                    message: 'Login successfully',
+                    message: 'Hello ${state.name}',
                     type: AnimatedSnackBarType.success,
                   );
                 }
@@ -108,8 +109,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               child: CustomTextRich(
                 textOne: 'Don’t have an account? ',
                 textTwo: 'Join',
-                onTap:
-                    () => Navigator.pushNamed(context, SignUpView.routeName),
+                onTap: () => Navigator.pushNamed(context, SignUpView.routeName),
               ),
             ),
             HeightSized(height: 12),

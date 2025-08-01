@@ -5,7 +5,10 @@ class SecureStorage {
     aOptions: const AndroidOptions(encryptedSharedPreferences: true),
   );
 
-  static Future<void> write({required String key, required String value}) async {
+  static Future<void> write({
+    required String key,
+    required String value,
+  }) async {
     await _storage.write(key: key, value: value);
   }
 

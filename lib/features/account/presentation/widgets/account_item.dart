@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountItem extends StatelessWidget {
-  const AccountItem({super.key, required this.icon, required this.title, this.onTap});
+  const AccountItem({
+    super.key,
+    required this.icon,
+    required this.title,
+    this.onTap,
+  });
 
   final String icon;
   final String title;
@@ -22,7 +27,11 @@ class AccountItem extends StatelessWidget {
           WidthSized(width: 16),
           Text(title, style: AppStyles.textRegular16),
           Spacer(),
-          Icon(Icons.arrow_forward_ios, size: 16.sp, color: AppColors.secondary),
+          Icon(
+            Icons.arrow_forward_ios,
+            size: 16.sp,
+            color: AppColors.secondary,
+          ),
           WidthSized(width: 24.w),
         ],
       ),

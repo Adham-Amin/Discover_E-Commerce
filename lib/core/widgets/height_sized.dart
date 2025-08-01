@@ -9,6 +9,6 @@ class HeightSized extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: height.h, child: child,);
+    return SizedBox(height: height.h, child: child);
   }
 }

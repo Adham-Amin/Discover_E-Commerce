@@ -17,11 +17,7 @@ class CartViewBody extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 300.h),
             child: SingleChildScrollView(
               child: Column(
-                children: [
-                  HeightSized(height: 10),
-                  CartItem(),
-                  CartItem(),
-                ],
+                children: [HeightSized(height: 10), CartItem(), CartItem()],
               ),
             ),
           ),

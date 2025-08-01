@@ -54,7 +54,11 @@ class CartItem extends StatelessWidget {
                           borderRadius: BorderRadius.circular(6.r),
                         ),
                       ),
-                      icon: Icon(Icons.remove, size: 16, color: AppColors.black),
+                      icon: Icon(
+                        Icons.remove,
+                        size: 16,
+                        color: AppColors.black,
+                      ),
                     ),
                     WidthSized(width: 8),
                     Text('1', style: AppStyles.textMedium16),
