@@ -45,35 +45,7 @@ class CartItem extends StatelessWidget {
                       style: AppStyles.textSemiBold32.copyWith(fontSize: 14),
                     ),
                     Spacer(),
-                    IconButton(
-                      onPressed: () {},
-                      style: IconButton.styleFrom(
-                        minimumSize: Size(16, 16),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(color: AppColors.gray),
-                          borderRadius: BorderRadius.circular(6.r),
-                        ),
-                      ),
-                      icon: Icon(
-                        Icons.remove,
-                        size: 16,
-                        color: AppColors.black,
-                      ),
-                    ),
-                    WidthSized(width: 8),
-                    Text('1', style: AppStyles.textMedium16),
-                    WidthSized(width: 8),
-                    IconButton(
-                      onPressed: () {},
-                      style: IconButton.styleFrom(
-                        minimumSize: Size(16, 16),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(color: AppColors.gray),
-                          borderRadius: BorderRadius.circular(6.r),
-                        ),
-                      ),
-                      icon: Icon(Icons.add, size: 16, color: AppColors.black),
-                    ),
+                    Text('3 pcs', style: AppStyles.textRegular16),
                   ],
                 ),
               ],

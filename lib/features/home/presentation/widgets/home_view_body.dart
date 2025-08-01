@@ -34,8 +34,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HeightSized(height: 60),
-                Text('Discover', style: AppStyles.textSemiBold32),
                 HeightSized(height: 16),
                 CustomTextField(onChanged: (q) => context.read<HomeCubit>().search(q: q),),
                 HeightSized(height: 16),

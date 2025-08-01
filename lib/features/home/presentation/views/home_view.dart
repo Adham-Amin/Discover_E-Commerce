@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:discover/core/services/api_service.dart';
+import 'package:discover/core/utils/app_colors.dart';
+import 'package:discover/core/utils/app_styles.dart';
 import 'package:discover/features/home/data/data_sources/remote_home_data_source.dart';
 import 'package:discover/features/home/data/repos/home_repo_impl.dart';
 import 'package:discover/features/home/presentation/cubit/home_cubit.dart';
@@ -21,7 +23,14 @@ class HomeView extends StatelessWidget {
               ),
             ),
           ),
-      child: const Scaffold(body: HomeViewBody()),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          automaticallyImplyLeading: false,
+          title: Text('Discover', style: AppStyles.textSemiBold32),
+        ),
+        body: HomeViewBody(),
+      ),
     );
   }
 }

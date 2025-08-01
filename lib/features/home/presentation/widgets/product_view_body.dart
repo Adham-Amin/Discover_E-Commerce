@@ -2,15 +2,22 @@ import 'package:discover/core/utils/app_colors.dart';
 import 'package:discover/core/utils/app_styles.dart';
 import 'package:discover/core/widgets/custom_button.dart';
 import 'package:discover/core/widgets/height_sized.dart';
+import 'package:discover/core/widgets/width_sized.dart';
 import 'package:discover/features/home/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductViewBody extends StatelessWidget {
+class ProductViewBody extends StatefulWidget {
   const ProductViewBody({super.key, required this.product});
 
   final ProductEntity product;
 
+  @override
+  State<ProductViewBody> createState() => _ProductViewBodyState();
+}
+
+class _ProductViewBodyState extends State<ProductViewBody> {
+  int quantity = 1;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,15 +33,58 @@ class ProductViewBody extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Image.network(
-              product.imageUrl,
+              widget.product.imageUrl,
               errorBuilder: (context, error, stackTrace) => Icon(Icons.error),
               fit: BoxFit.fill,
             ),
           ),
           HeightSized(height: 12),
-          Text(
-            product.name.substring(0, 10),
-            style: AppStyles.textSemiBold32.copyWith(fontSize: 24.sp),
+          Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Text(
+                  widget.product.name,
+                  maxLines: 1,
+                  style: AppStyles.textSemiBold32.copyWith(fontSize: 24.sp),
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  if (quantity > 1) {
+                    setState(() {
+                      quantity--;
+                    });
+                  }
+                },
+                style: IconButton.styleFrom(
+                  minimumSize: Size(16, 16),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: AppColors.gray),
+                    borderRadius: BorderRadius.circular(6.r),
+                  ),
+                ),
+                icon: Icon(Icons.remove, size: 16, color: AppColors.black),
+              ),
+              WidthSized(width: 8),
+              Text(quantity.toString(), style: AppStyles.textMedium16),
+              WidthSized(width: 8),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    quantity++;
+                  });
+                },
+                style: IconButton.styleFrom(
+                  minimumSize: Size(16, 16),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: AppColors.gray),
+                    borderRadius: BorderRadius.circular(6.r),
+                  ),
+                ),
+                icon: Icon(Icons.add, size: 16, color: AppColors.black),
+              ),
+            ],
           ),
           HeightSized(height: 12),
           Row(
@@ -42,13 +92,13 @@ class ProductViewBody extends StatelessWidget {
             children: [
               Icon(Icons.star, color: Colors.yellow),
               Text(
-                '${product.rate}/5',
+                '${widget.product.rate}/5',
                 style: AppStyles.textMedium16.copyWith(
                   decoration: TextDecoration.underline,
                 ),
               ),
               Text(
-                '(${product.count} reviews)',
+                '(${widget.product.count} reviews)',
                 style: AppStyles.textMedium16.copyWith(
                   color: AppColors.secondary,
                 ),
@@ -57,7 +107,7 @@ class ProductViewBody extends StatelessWidget {
           ),
           HeightSized(height: 12),
           Text(
-            product.overview,
+            widget.product.overview,
             maxLines: 5,
             overflow: TextOverflow.clip,
             style: AppStyles.textRegular16.copyWith(color: AppColors.secondary),
@@ -77,7 +127,7 @@ class ProductViewBody extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '\$ ${product.priceProduct}',
+                    '\$ ${widget.product.priceProduct * quantity}'.substring(0, 7),
                     style: AppStyles.textSemiBold32.copyWith(fontSize: 24.sp),
                   ),
                 ],
