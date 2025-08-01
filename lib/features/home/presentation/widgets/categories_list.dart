@@ -1,4 +1,4 @@
-import 'package:discover/features/home/presentation/cubit/home_cubit.dart';
+import 'package:discover/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:discover/features/home/presentation/widgets/select_and_unselect_product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

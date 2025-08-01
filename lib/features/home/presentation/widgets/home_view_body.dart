@@ -1,7 +1,7 @@
 import 'package:discover/core/utils/app_styles.dart';
 import 'package:discover/core/widgets/custom_loading.dart';
 import 'package:discover/core/widgets/height_sized.dart';
-import 'package:discover/features/home/presentation/cubit/home_cubit.dart';
+import 'package:discover/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:discover/features/home/presentation/widgets/categories_list.dart';
 import 'package:discover/features/home/presentation/widgets/custom_text_field.dart';
 import 'package:discover/features/home/presentation/widgets/product_item.dart';
@@ -35,7 +35,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 HeightSized(height: 16),
-                CustomTextField(onChanged: (q) => context.read<HomeCubit>().search(q: q),),
+                CustomTextField(
+                  onChanged: (q) => context.read<HomeCubit>().search(q: q),
+                ),
                 HeightSized(height: 16),
                 CategoriesList(),
                 HeightSized(height: 24),
